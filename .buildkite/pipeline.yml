@@ -1,11 +1,11 @@
 steps:
   - label: ':docker: Build'
     plugins:
-      - docker-compose#v2.5.1:
+      - docker-compose#v2.6.0:
           build: ci
           image-repository: 855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner
           cache-from: ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME:-[latest]}-ci
-      - docker-compose#v2.5.1:
+      - docker-compose#v2.6.0:
           push:
             - ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:latest-ci
             - ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME}-ci
@@ -14,19 +14,19 @@ steps:
 
   - label: 'Unit tests'
     plugins:
-      docker-compose#v2.5.1:
+      docker-compose#v2.6.0:
         run: ci
     command: 'bundle exec rake'
 
   - label: 'Comparison tests'
     plugins:
-      docker-compose#v2.5.1:
+      docker-compose#v2.6.0:
         run: comparison-tests
     command: 'bundle exec bugsnag-maze-runner'
 
   - label: 'Browserstack-app-automate integration test'
     plugins:
-      docker-compose#v2.5.1:
+      docker-compose#v2.6.0:
         run: browserstack-app-automate
     command: 'bundle exec bugsnag-maze-runner'
     concurrency: 5
@@ -34,7 +34,7 @@ steps:
 
   - label: 'Payload helper tests'
     plugins:
-      docker-compose#v2.5.1:
+      docker-compose#v2.6.0:
         run: payload-helper-tests
     command: 'bundle exec bugsnag-maze-runner'
 
@@ -43,16 +43,16 @@ steps:
   - label: 'Update docs'
     if: build.branch == "v2" || build.branch == "master"
     plugins:
-      docker-compose#v2.5.1:
+      docker-compose#v2.6.0:
         run: ci
     command: 'bundle exec rake docs:build_and_publish'
 
   - label: 'Release'
     plugins:
-      - docker-compose#v2.5.1:
+      - docker-compose#v2.6.0:
           build: cli
           cache-from: cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME:-[latest]}-cli
-      - docker-compose#v2.5.1:
+      - docker-compose#v2.6.0:
           push:
             - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:latest-cli
             - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME}-cli
