@@ -5,6 +5,11 @@ steps:
           build: ci
           image-repository: 855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner
           cache-from: ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME:-[latest]}-ci
+
+  - wait
+
+  - label: ':docker: Push'
+    plugins:
       - docker-compose#v3.1.0:
           push:
             - ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:latest-ci
