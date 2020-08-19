@@ -9,80 +9,92 @@ class Devices
     'platformName' => 'Android',
     'os' => 'android',
     'os_version' => '10.0',
-    'browserstack.appium_version' => '1.15.0'
+    'browserstack.appium_version' => '1.15.0',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_9_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Pixel 3',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '9.0'
+    'os_version' => '9.0',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_8_1 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Samsung Galaxy Note 9',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '8.1'
+    'os_version' => '8.1',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_8_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Pixel 2',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '8.0'
+    'os_version' => '8.0',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_7_1 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Pixel',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '7.1'
+    'os_version' => '7.1',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_6_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Nexus 6',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '6.0'
+    'os_version' => '6.0',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_5_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Nexus 6',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '5.0'
+    'os_version' => '5.0',
+    'disableAnimations' => 'true'
   }.freeze
   ANDROID_4_4 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Nexus 5',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '4.4'
+    'os_version' => '4.4',
+    'disableAnimations' => 'true'
   }.freeze
   IOS_13 = {
-      'device' => 'iPhone 8',
-      'platformName' => 'iOS',
-      'os' => 'ios',
-      'os_version' => '13'
+    'device' => 'iPhone 8',
+    'platformName' => 'iOS',
+    'os' => 'ios',
+    'os_version' => '13',
+    'disableAnimations' => 'true'
   }.freeze
   IOS_12 = {
     'device' => 'iPhone 8',
     'platformName' => 'iOS',
     'os' => 'ios',
-    'os_version' => '12'
+    'os_version' => '12',
+    'disableAnimations' => 'true'
   }.freeze
   IOS_11 = {
     'device' => 'iPhone 8',
     'platformName' => 'iOS',
     'os' => 'ios',
-    'os_version' => '11'
+    'os_version' => '11',
+    'disableAnimations' => 'true'
   }.freeze
   IOS_10 = {
     'device' => 'iPhone 7',
     'platformName' => 'iOS',
     'os' => 'ios',
-    'os_version' => '10'
+    'os_version' => '10',
+    'disableAnimations' => 'true'
   }.freeze
   DEVICE_HASH = {
     'ANDROID_10_0' => ANDROID_10_0,
