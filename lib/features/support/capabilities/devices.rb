@@ -49,52 +49,53 @@ class Devices
     'device' => 'Google Nexus 6',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '6.0',
-    'disableAnimations' => 'true'
+    'os_version' => '6.0'
   }.freeze
   ANDROID_5_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Nexus 6',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '5.0',
-    'disableAnimations' => 'true'
+    'os_version' => '5.0'
   }.freeze
   ANDROID_4_4 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Nexus 5',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '4.4',
-    'disableAnimations' => 'true'
+    'os_version' => '4.4'
   }.freeze
   IOS_13 = {
     'device' => 'iPhone 8',
     'platformName' => 'iOS',
     'os' => 'ios',
     'os_version' => '13',
-    'disableAnimations' => 'true'
+    'disableAnimations' => 'true',
+    'browserstack.appium_version' => '1.16.0'
   }.freeze
   IOS_12 = {
     'device' => 'iPhone 8',
     'platformName' => 'iOS',
     'os' => 'ios',
     'os_version' => '12',
-    'disableAnimations' => 'true'
+    'disableAnimations' => 'true',
+    'browserstack.appium_version' => '1.16.0'
   }.freeze
   IOS_11 = {
     'device' => 'iPhone 8',
     'platformName' => 'iOS',
     'os' => 'ios',
     'os_version' => '11',
-    'disableAnimations' => 'true'
+    'disableAnimations' => 'true',
+    'browserstack.appium_version' => '1.16.0'
   }.freeze
   IOS_10 = {
     'device' => 'iPhone 7',
     'platformName' => 'iOS',
     'os' => 'ios',
     'os_version' => '10',
-    'disableAnimations' => 'true'
+    'disableAnimations' => 'true',
+    'browserstack.appium_version' => '1.16.0'
   }.freeze
   DEVICE_HASH = {
     'ANDROID_10_0' => ANDROID_10_0,
