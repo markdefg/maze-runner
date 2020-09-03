@@ -3,12 +3,21 @@
 class Devices
 
   # The hash of device capabilities, accessible by simple names
+  ANDROID_11_0 = {
+    'autoGrantPermissions' => 'true',
+    'device' => 'Google Pixel 4',
+    'platformName' => 'Android',
+    'os' => 'android',
+    'os_version' => '11.0',
+    'browserstack.appium_version' => '1.18.0'
+  }.freeze
   ANDROID_10_0 = {
     'autoGrantPermissions' => 'true',
     'device' => 'Google Pixel 4',
     'platformName' => 'Android',
     'os' => 'android',
-    'os_version' => '10.0'
+    'os_version' => '10.0',
+    'browserstack.appium_version' => '1.18.0'
   }.freeze
   ANDROID_9_0 = {
     'autoGrantPermissions' => 'true',
@@ -84,6 +93,7 @@ class Devices
     'os_version' => '10'
   }.freeze
   DEVICE_HASH = {
+    'ANDROID_11_0' => ANDROID_11_0,
     'ANDROID_10_0' => ANDROID_10_0,
     'ANDROID_9_0' => ANDROID_9_0,
     'ANDROID_8_1' => ANDROID_8_1,
