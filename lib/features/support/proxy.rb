@@ -48,6 +48,9 @@ class Proxy
       @thread = Thread.new do
 
         handler = proc do |req, res|
+          $logger.debug "Proxy HTTP version: #{req.http_version}"
+          $logger.debug "Proxy Headers: #{req.header}"
+          $logger.debug "Proxy target URI: #{req.unparsed_uri}"
           req.header['host'].each { |host| @hosts.append(host) }
         end
         config = {
