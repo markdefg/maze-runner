@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+puts 'In bugsnag-maze-runner'
 if ARGV.include? "--version"
   require_relative '../lib/version'
   puts BugsnagMazeRunner::VERSION
@@ -9,9 +10,12 @@ elsif ARGV.include? "init"
   exit 0
 end
 
+puts 'require cucumber'
 require 'cucumber/cli/main'
 
-CUKE_LOAD_DIR = File.expand_path(File.dirname(File.dirname(__FILE__)))
+directory = File.dirname(__FILE__)
+puts "Expanding path: #{directory}"
+CUKE_LOAD_DIR = File.expand_path(File.dirname(directory))
 
 ENV['VERBOSE'] = "true" if ARGV.include? "--verbose"
 args = ARGV.dup
@@ -24,5 +28,8 @@ paths.each do |path|
   args << "-r"
   args << path
 end
+
+puts 'running cucumber with args'
+puts args
 
 Cucumber::Cli::Main.new(args).execute!
