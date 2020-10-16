@@ -1,3 +1,10 @@
+# 2.7.1 - 2020/10/16
+
+## Fixes
+
+- Resolve logged BrowserStackLocal errors by moving to Ubuntu base image
+  [#139](https://github.com/bugsnag/maze-runner/pull/139)
+
 # 2.7.0 - 2020/09/30
 
 ## Enhancements
