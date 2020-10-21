@@ -10,7 +10,6 @@ end
 # Before each scenario
 Before do |scenario|
   STDOUT.puts "--- Scenario: #{scenario.name}"
-  Runner.environment.clear
   Server.stored_requests.clear
   Store.values.clear
 
