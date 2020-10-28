@@ -69,6 +69,45 @@ steps:
     soft_fail:
       - exit_status: "*"
 
+
+  - label: 'Browserstack app-automate test - Android 6'
+    plugins:
+      docker-compose#v3.3.0:
+        run: browserstack-app-automate
+    command: >-
+      bundle exec bugsnag-maze-runner
+      --app=app/build/outputs/apk/release/app-release.apk
+      --farm=bs
+      --device=ANDROID_6_0_SAMSUNG_GALAXY_S7
+      --username=$BROWSER_STACK_USERNAME
+      --access-key=$BROWSER_STACK_ACCESS_KEY
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    #
+    # TODO: Remove as soon as possible - working around BrowserStack network problem
+    #
+    soft_fail:
+      - exit_status: "*"
+
+  - label: 'Browserstack app-automate test - Android 6'
+    plugins:
+      docker-compose#v3.3.0:
+        run: browserstack-app-automate
+    command: >-
+      bundle exec bugsnag-maze-runner
+      --app=app/build/outputs/apk/release/app-release.apk
+      --farm=bs
+      --device=ANDROID_6_0_MOTOROLA_MOTO_X_2ND_GEN
+      --username=$BROWSER_STACK_USERNAME
+      --access-key=$BROWSER_STACK_ACCESS_KEY
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    #
+    # TODO: Remove as soon as possible - working around BrowserStack network problem
+    #
+    soft_fail:
+      - exit_status: "*"
+
   - label: 'Browserstack app-automate test - Android 7.1 (separate Appium sessions)'
     plugins:
       docker-compose#v3.3.0:
@@ -87,62 +126,6 @@ steps:
     #
     soft_fail:
       - exit_status: "*"
-
-  - label: 'Browserstack app-automate test - Android 8.1'
-    plugins:
-      docker-compose#v3.3.0:
-        run: browserstack-app-automate
-    command: >-
-      bundle exec bugsnag-maze-runner
-      --app=app/build/outputs/apk/release/app-release.apk
-      --farm=bs
-      --device=ANDROID_8_1
-      --username=$BROWSER_STACK_USERNAME
-      --access-key=$BROWSER_STACK_ACCESS_KEY
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - label: 'Browserstack app-automate test - Android 9'
-    plugins:
-      docker-compose#v3.3.0:
-        run: browserstack-app-automate
-    command: >-
-      bundle exec bugsnag-maze-runner
-      --app=app/build/outputs/apk/release/app-release.apk
-      --farm=bs
-      --device=ANDROID_9_0
-      --username=$BROWSER_STACK_USERNAME
-      --access-key=$BROWSER_STACK_ACCESS_KEY
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - label: 'Browserstack app-automate test - Android 10 (separate Appium sessions)'
-    plugins:
-      docker-compose#v3.3.0:
-        run: browserstack-app-automate
-    command: >-
-      bundle exec bugsnag-maze-runner
-      --app=app/build/outputs/apk/release/app-release.apk
-      --farm=bs
-      --device=ANDROID_10_0
-      --username=$BROWSER_STACK_USERNAME
-      --access-key=$BROWSER_STACK_ACCESS_KEY
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - label: 'Browserstack app-automate test - Android 11 (separate Appium sessions)'
-    plugins:
-      docker-compose#v3.3.0:
-        run: browserstack-app-automate
-    command: >-
-      bundle exec bugsnag-maze-runner
-      --app=app/build/outputs/apk/release/app-release.apk
-      --farm=bs
-      --device=ANDROID_11_0
-      --username=$BROWSER_STACK_USERNAME
-      --access-key=$BROWSER_STACK_ACCESS_KEY
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
 
   - label: 'Payload helper tests'
     plugins:
