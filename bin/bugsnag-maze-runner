@@ -152,7 +152,7 @@ class MazeRunnerEntry
     elsif MazeRunner.configuration.farm == :local
       MazeRunner.configuration.appium_server_url = options[OPTION_APPIUM_SERVER]
       device = device.downcase
-      raise 'device must be ios or android' unless %w[ios android].include? device
+      raise 'device must be ios or android' unless %w[android ios mac].include? device
 
       if device == 'ios'
         raise 'option --apple-team-id must be specified for iOS' if options[OPTION_APPLE_TEAM_ID].nil?
