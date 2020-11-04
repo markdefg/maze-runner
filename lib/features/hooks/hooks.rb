@@ -21,7 +21,7 @@ AfterConfiguration do |config|
   MazeRunner.configuration.capabilities['app'] = MazeRunner.configuration.app_location
 
   # Create and start the drive
-  MazeRunner.driver = ResilientAppiumDriver.new(MazeRunner.configuration.appium_server_url,
+  MazeRunner.driver = AppiumDriver.new(MazeRunner.configuration.appium_server_url,
                                                 MazeRunner.configuration.capabilities)
   MazeRunner.driver.start_driver unless MazeRunner.configuration.appium_session_isolation
 
