@@ -80,8 +80,9 @@ After do |scenario|
   if MazeRunner.configuration.appium_session_isolation
     MazeRunner.driver.driver_quit
   else
-    MazeRunner.driver.reset_with_timeout 2
-  end
+      system("killall macOSTestApp")
+      MazeRunner.driver.get("macOSTestApp")
+    end
 end
 
 # After all tests
