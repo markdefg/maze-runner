@@ -44,6 +44,7 @@ Before do |scenario|
   next if MazeRunner.configuration.farm == :no_farm
 
   MazeRunner.driver.start_driver if MazeRunner.configuration.appium_session_isolation
+  MazeRunner.driver.get("macOSTestApp") # Launches the app
 end
 
 # After each scenario
@@ -81,7 +82,6 @@ After do |scenario|
     MazeRunner.driver.driver_quit
   else
       system("killall macOSTestApp")
-      MazeRunner.driver.get("macOSTestApp")
     end
 end
 
