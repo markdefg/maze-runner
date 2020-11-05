@@ -24,7 +24,12 @@ end
 #
 # @step_input element_id [String] The locator id
 When('I click the element {string}') do |element_id|
-  MazeRunner.driver.click_element(element_id)
+  begin
+    MazeRunner.driver.click_element(element_id)
+  rescue
+    puts "MazeRunner.driver.click_element raised an exception - this is normal when using AppiumForMac to run a scenario that crashes the app."
+    puts $!
+  end
 end
 
 # Sends the app to the background for a number of seconds
