@@ -69,6 +69,11 @@ Before do |scenario|
 
   MazeRunner.driver.start_driver if MazeRunner.config.farm != :none && MazeRunner.config.appium_session_isolation
 
+  if MazeRunner.driver.capabilities["platformName"] == 'Mac'
+    # Launch the app
+    MazeRunner.driver.get(MazeRunner.driver.capabilities["app"])
+  end
+
   # Call any blocks registered by the client
   MazeRunner.hooks.call_before scenario
 end
@@ -114,7 +119,12 @@ After do |scenario|
   if MazeRunner.config.appium_session_isolation
     MazeRunner.driver.driver_quit
   else
-    MazeRunner.driver.reset_with_timeout 2
+    if MazeRunner.driver.capabilities["platformName"] == 'Mac'
+      # Without the sleep, launching the app for the next scenario intermittently fails
+      system("killall #{MazeRunner.driver.capabilities["app"]} && sleep 1")
+    else
+      MazeRunner.driver.reset_with_timeout 2
+    end
   end
 end
 

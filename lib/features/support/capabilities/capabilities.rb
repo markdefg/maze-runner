@@ -38,6 +38,10 @@ class Capabilities
                          'xcodeSigningId' => 'iPhone Developer',
                          'udid' => udid
                        }
+                      elsif platform.downcase == 'macos'
+                        {
+                          'platformName' => 'Mac' # must match the name specified by the driver
+                        }
                      end
       common = {
         'os' => platform,

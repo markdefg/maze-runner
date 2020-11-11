@@ -213,7 +213,7 @@ class MazeRunnerEntry
 
       os = MazeRunner.config.os = options[OPTION_OS].downcase
       MazeRunner.config.os_version = options[OPTION_OS_VERSION].to_f
-      raise 'os must be ios or android' unless %w[ios android].include? os
+      raise 'os must be android, ios or macos' unless %w[android ios macos].include? os
 
       config.appium_server_url = options[OPTION_APPIUM_SERVER]
       if os == 'ios'
