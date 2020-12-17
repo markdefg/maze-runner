@@ -68,6 +68,37 @@ steps:
           run: docker-tests
     command: 'bundle exec maze-runner'
 
+  - label: 'Browserstack app-automate test - Android 4.4'
+    depends_on: "test-images"
+    plugins:
+      docker-compose#v3.7.0:
+        run: browserstack-app-automate
+    command: >-
+      bundle exec bugsnag-maze-runner
+      --app=app/build/outputs/apk/release/app-release.apk
+      --farm=bs
+      --device=ANDROID_4_4
+      --device=ANDROID_4_4
+      --username=$BROWSER_STACK_USERNAME
+      --access-key=$BROWSER_STACK_ACCESS_KEY
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+
+  - label: 'Browserstack app-automate test - Android 5'
+    depends_on: "test-images"
+    plugins:
+      docker-compose#v3.7.0:
+        run: browserstack-app-automate
+    command: >-
+      bundle exec bugsnag-maze-runner
+      --app=app/build/outputs/apk/release/app-release.apk
+      --farm=bs
+      --device=ANDROID_5_0
+      --username=$BROWSER_STACK_USERNAME
+      --access-key=$BROWSER_STACK_ACCESS_KEY
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+
   - label: 'Browserstack app-automate test - Android 6'
     depends_on: "test-images"
     plugins:
