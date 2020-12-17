@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             val metadata = findViewById<EditText>(R.id.metadata).text.toString()
             val text = if (metadata == "") "HandledException!" else metadata
+            Log.i("Bugsnag", "Notifying now")
             Bugsnag.notify(Exception(text))
         }
     }
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun startBugsnag() {
         val config = Configuration("12312312312312312312312312312312")
         config.autoTrackSessions = false
-        config.setEndpoints(EndpointConfiguration("http://localhost:9339", "http://localhost:9339"))
+        config.setEndpoints(EndpointConfiguration("http://bs-local.com", "http://bs-local.com"))
         config.addOnError(OnErrorCallback { event ->
             event.addMetadata("test", "boolean_false", false)
             event.addMetadata("test", "boolean_true", true)

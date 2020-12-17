@@ -15,7 +15,7 @@ require_relative '../../version'
 #   80, 3000, 4000, 5000, 8000, 8080 or 9000-9999
 #   [ from https://stackoverflow.com/a/28678652 ]
 #
-MOCK_API_PORT = 9339
+MOCK_API_PORT = 80
 
 # Receives and stores requests through a WEBrick HTTPServer
 class Server
