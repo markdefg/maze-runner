@@ -49,25 +49,6 @@ steps:
             - ci:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner:${BRANCH_NAME}-ci
           build-parallel: true
 
-  - label: 'No-device tests'
-    depends_on: "test-images"
-    plugins:
-      - docker-compose#v3.7.0:
-          run: framework-tests
-      - docker-compose#v3.7.0:
-          run: comparison-tests
-      - docker-compose#v3.7.0:
-          run: proxy-tests
-      - docker-compose#v3.7.0:
-          run: cli-tests
-      - docker-compose#v3.7.0:
-          run: http-response-tests
-      - docker-compose#v3.7.0:
-          run: payload-helper-tests
-      - docker-compose#v3.7.0:
-          run: docker-tests
-    command: 'bundle exec maze-runner'
-
   - label: 'Browserstack app-automate test - Android 4.4'
     depends_on: "test-images"
     plugins:
@@ -113,7 +94,7 @@ steps:
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
-  - label: 'Browserstack app-automate test - Android 7.1 (separate Appium sessions)'
+  - label: 'Browserstack app-automate test - Android 7.1'
     depends_on: "test-images"
     plugins:
       docker-compose#v3.7.0:
@@ -159,7 +140,7 @@ steps:
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
-  - label: 'Browserstack app-automate test - Android 10 (separate Appium sessions)'
+  - label: 'Browserstack app-automate test - Android 10'
     depends_on: "test-images"
     plugins:
       docker-compose#v3.7.0:
@@ -175,7 +156,7 @@ steps:
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
-  - label: 'Browserstack app-automate test - Android 11 (separate Appium sessions)'
+  - label: 'Browserstack app-automate test - Android 11'
     depends_on: "test-images"
     plugins:
       docker-compose#v3.7.0:

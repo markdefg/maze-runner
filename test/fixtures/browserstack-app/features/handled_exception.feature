@@ -1,13 +1,6 @@
 Feature: Android support
 
-Scenario: Test Handled Android Exception
+Scenario: Make a simple GET request
   Given the element "trigger_error" is present
   When I click the element "trigger_error"
   Then I wait to receive a request
-  # TODO Uncomment this once Android is released with the Integrity header
-  # And the Bugsnag-Integrity header is valid
-  And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
-  And the exception "errorClass" equals "java.lang.Exception"
-  And the exception "message" equals "HandledException!"
-  # Verifies the environment variable change works
-  And the payload field "apiKey" equals the environment variable "BUGSNAG_API_KEY"

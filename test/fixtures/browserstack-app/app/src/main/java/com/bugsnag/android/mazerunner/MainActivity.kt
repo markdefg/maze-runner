@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import com.bugsnag.android.*
 import java.lang.Exception
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,31 +17,15 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.trigger_error)
         button.setOnClickListener {
             val metadata = findViewById<EditText>(R.id.metadata).text.toString()
-            val text = if (metadata == "") "HandledException!" else metadata
-            Log.i("Bugsnag", "Notifying now")
-            Bugsnag.notify(Exception(text))
+
+            Thread {
+                Log.i("Steve", "GETting google.com")
+                Log.i("Steve", URL("http://google.com").readText() + "\n\n\n\n")
+
+                Log.i("Steve", "GETting bs-local.com:8080")
+                Log.i("Steve", URL("http://bs-local.com:8080").readText())
+
+            }.start()
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        startBugsnag()
-    }
-
-    private fun startBugsnag() {
-        val config = Configuration("12312312312312312312312312312312")
-        config.autoTrackSessions = false
-        config.setEndpoints(EndpointConfiguration("http://bs-local.com:8080", "http://bs-local.com:8080"))
-        config.addOnError(OnErrorCallback { event ->
-            event.addMetadata("test", "boolean_false", false)
-            event.addMetadata("test", "boolean_true", true)
-            event.addMetadata("test", "float", 1.55)
-            event.addMetadata("test", "integer", 2)
-
-            true
-        })
-
-        Bugsnag.start(this, config)
-    }
-
 }

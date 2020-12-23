@@ -6,8 +6,13 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
   #
   # @param request [HTTPRequest] The incoming GET request
   # @param _response [HTTPResponse] The response to return
-  def do_GET(request, _response)
-    log_request(request)
+  def do_GET(request, response)
+    $logger.info 'Steve: GET request received'
+    response.status = 200
+    Server.stored_requests << {
+      body: 'Message received'
+    }
+    response.body = 'Reply from the web server'
   end
 
   # Logs and parses an incoming POST request.
