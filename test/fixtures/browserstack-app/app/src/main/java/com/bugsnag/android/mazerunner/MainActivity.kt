@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun startBugsnag() {
         val config = Configuration("12312312312312312312312312312312")
         config.autoTrackSessions = false
-        config.setEndpoints(EndpointConfiguration("http://bs-local.com", "http://bs-local.com"))
+        config.setEndpoints(EndpointConfiguration("http://bs-local.com:8080", "http://bs-local.com:8080"))
         config.addOnError(OnErrorCallback { event ->
             event.addMetadata("test", "boolean_false", false)
             event.addMetadata("test", "boolean_true", true)
