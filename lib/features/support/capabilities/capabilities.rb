@@ -11,7 +11,7 @@ class Capabilities
         'browserstack.console' => 'errors',
         'browserstack.localIdentifier' => local_id,
         'browserstack.local' => 'true',
-        'browserstack.networkLogs' => 'true'
+        'browserstack.networkLogs' => 'false'
       }
       capabilities.merge! Devices::DEVICE_HASH[device_type]
       capabilities.merge! JSON.parse(capabilities_option)
