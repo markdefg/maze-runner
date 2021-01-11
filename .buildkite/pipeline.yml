@@ -75,12 +75,12 @@ steps:
         run: browserstack-app-automate
     command: >-
       bundle exec bugsnag-maze-runner
-      - --app=app/build/outputs/apk/release/app-release.apk
-      - --farm=bs
-      - --device=ANDROID_6_0
-      - --username=$BROWSER_STACK_USERNAME
-      - --access-key=$BROWSER_STACK_ACCESS_KEY
-      - "--tags='not @Flaky'"
+      --app=app/build/outputs/apk/release/app-release.apk
+      --farm=bs
+      --device=ANDROID_6_0
+      --username=$BROWSER_STACK_USERNAME
+      --access-key=$BROWSER_STACK_ACCESS_KEY
+      --tags='not @Flaky'
 
 #  - label: 'Browserstack app-automate test - Android 7.1 (separate Appium sessions)'
 #    depends_on: "test-images"
