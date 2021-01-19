@@ -3,6 +3,7 @@
 require 'cucumber'
 require 'json'
 require 'securerandom'
+require 'uri'
 
 AfterConfiguration do |_cucumber_config|
 
@@ -33,6 +34,8 @@ AfterConfiguration do |_cucumber_config|
                                                  config.capabilities_option,
                                                  config.apple_team_id,
                                                  config.device_id
+    appium_uri = URI(config.appium_server_url)
+    LocalAppiumServer.start(address: appium_uri.host, port: appium_uri.port)
   end
 
   # Set app location (file or url) in capabilities
