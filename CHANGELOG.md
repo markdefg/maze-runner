@@ -1,3 +1,25 @@
+# 4.2.0 - 2021/01/22
+
+## Enhancements
+
+- Further Android 4.4 and 5.0 devices added [#206](https://github.com/bugsnag/maze-runner/pull/206)
+
+# 4.1.0 - 2021/01/21
+
+## Enhancements
+
+- Additional device options added for Android 4.4 and 5.0 [#204](https://github.com/bugsnag/maze-runner/pull/204)
+
+## Fixes
+
+- Logging corrections and improvements [#203](https://github.com/bugsnag/maze-runner/pull/203)
+
+# 4.0.0 - 2021/01/18
+
+## Enhancements
+
+- Mock server and steps updated to receive different request types on separate endpoints [#186](https://github.com/bugsnag/maze-runner/pull/186)
+
 # 3.7.4 - 2021/01/12
 
 ## Fixes
@@ -311,7 +333,7 @@ Addition of HTTP version steps.
 # 1.1.0
 
 Various changes have been made since the 1.0.0 release, but no specific versioning strategy
-was not employed.  This minor release encapsulates those changes and no further significant
+was employed.  This minor release encapsulates those changes and no further significant 
 changes to the v1 series is expected (v2 already exists and should be used in preference).
 
 # 1.0.0

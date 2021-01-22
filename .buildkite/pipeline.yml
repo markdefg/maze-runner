@@ -74,7 +74,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
       --device=ANDROID_6_0
@@ -89,7 +89,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
       --device=ANDROID_7_1
@@ -104,7 +104,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --resilient
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
@@ -120,7 +120,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
       --device=ANDROID_9_0
@@ -135,7 +135,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
       --device=ANDROID_10_0
@@ -151,7 +151,7 @@ steps:
       docker-compose#v3.7.0:
         run: browserstack-app-automate
     command: >-
-      bundle exec bugsnag-maze-runner
+      bundle exec maze-runner
       --app=app/build/outputs/apk/release/app-release.apk
       --farm=bs
       --device=ANDROID_11_0
@@ -162,27 +162,6 @@ steps:
     concurrency_group: 'browserstack-app'
 
   - wait
-
-  - label: 'Trigger Android build against new master'
-    branches: 'master'
-    trigger: 'android-bugsnag-notifier'
-    build:
-      branch: 'maze-runner-master'
-    async: true
-
-  - label: 'Trigger Cocoa build against new master'
-    branches: 'master'
-    trigger: 'cocoa-bugsnag-notifier'
-    build:
-      branch: 'maze-runner-master'
-    async: true
-
-  - label: 'Trigger JS build against new master'
-    branches: 'master'
-    trigger: 'at-bugsnag-js'
-    build:
-      branch: 'maze-runner-master'
-    async: true
 
   - label: 'Update docs'
     if: build.tag =~ /^v[2-9]\.[0-9]+\.[0-9]+\$/
@@ -198,5 +177,5 @@ steps:
       - docker-compose#v3.7.0:
           push:
             - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner-releases:${BUILDKITE_TAG}-cli
-            - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner-releases:latest-v3-cli
+            - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner-releases:latest-v4-cli
             - cli:855461928731.dkr.ecr.us-west-1.amazonaws.com/maze-runner-releases:latest-cli
